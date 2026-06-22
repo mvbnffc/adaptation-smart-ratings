@@ -1,28 +1,57 @@
-# Code for "Modelling the impact of physical climate risk and adaptation on sovereign credit ratings"
+# Code for “Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”
 
-A probabilistic modelling framework for estimating how river flooding, climate
-change, and adaptation investments can affect Thailand's macroeconomy and
-sovereign credit rating.
+This repository contains the code used for the analysis in the paper **“Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”**, published in the *Oxford Review of Economic Policy*.
 
-![Projected downgrade probabilities with and without adaptation](assets/Figure_1.jpg)
+The repository implements a probabilistic modelling framework for estimating the impacts of flooding, climate change, and adaptation on Thailand’s sovereign credit rating. 
 
-<p align="center">
-  <img src="assets/Figure_5.png" alt="Figure 5: Projected downgrade probabilities with and without adaptation" width="800">
-</p>
+## Methodology
 
-## Model Overview
+The code links three types of model: (1) a flood risk and adaptation model, (2) a macroeconomic model (the IMF's DIGNAD), and (3) a sovereign rating model. The overall modelling framework is pictured below. Please refer to the accompanying academic paper for a detailed breakdown of the methodology.
 
-The model links river-flood risk, macroeconomic shocks, and sovereign credit
-ratings for Thailand. It simulates many possible flood years under current and
-future climate scenarios, compares baseline protection with adaptation, and
-tracks impacts through the chain:
+![Modelling Framework](assets/Figure_1.png)
 
-1. flood hazard, exposure, and vulnerability;
-2. basin-level capital and output losses;
-3. DIGNAD macroeconomic impacts; and
-4. sovereign rating, default-risk, and borrowing-cost outcomes.
+## Prerequisites
 
-## Running the Code
+To reproduce the analysis, users need:
+
+1. the code in this repository;
+2. the archived input and output folders from Zenodo;
+3. a local installation of the IMF DIGNAD toolkit;
+4. MATLAB, required for the DIGNAD-linked parts of the workflow;
+5. the Python environment specified in `environment.yml`.
+
+### 1. Download the input and output folders
+
+The input and output folders required to reproduce the analysis are archived separately on Zenodo:
+
+> **Zenodo record:** [https://doi.org/10.5281/zenodo.20797017](https://doi.org/10.5281/zenodo.20797017)
+
+Download the Zenodo archive and unzip/copy the supplied folders into the root of this repository
+
+### 2. Set up DIGNAD
+
+The DIGNAD-linked parts of the workflow require the IMF DIGNAD toolkit and MATLAB.
+
+For DIGNAD specific set-up instructions, please access the notes here:
+
+> [DIGNAD setup guide](assets/DIGNAD_SETUP.md)
+
+After completing these steps, the repository should look like:
+
+```text
+adaptation-smart-ratings/
+├── inputs/
+├── outputs/
+├── DIGNAD/
+├── notebooks/
+├── sovereign/
+├── assets/
+└── environment.yml
+```
+
+The `inputs/`, `outputs/`, and `DIGNAD/` directories are intentionally ignored by Git because they contain large files, generated outputs, or third-party materials.
+
+## Setting up the Python environment
 
 Create the Python environment from the repository root:
 
@@ -38,72 +67,34 @@ Then open the notebooks from the repository root:
 jupyter notebook
 ```
 
-The main paper workflow is:
+## Reproducing the analysis
 
-1. `notebooks/preparation/`
-2. `notebooks/pre_sim/`
-3. `notebooks/paper_analysis/full_simulation.ipynb`
-4. `notebooks/paper_analysis/validation_2011_floods.ipynb`
-5. `notebooks/paper_analysis/results_and_figures.ipynb`
+There are two ways to reproduce the analysis.
 
-Some notebooks depend on files produced by earlier notebooks. The full pipeline
-also requires input data, generated output caches, MATLAB, and the IMF DIGNAD
-toolkit, which are not stored in this code repository.
+### Option 1: Full model reproduction
 
-## Reproducing Figures
+To reproduce the full modelling workflow, run the notebooks in the following order:
 
-To reproduce the final paper figures from archived model outputs, run:
+1. `notebooks/preparation/` — runtime: approximately 3.5 hours
+2. `notebooks/pre_sim/` — runtime: approximately 28 hours
+3. `notebooks/paper_analysis/full_simulation.ipynb` — runtime: approximately 3 hours
+4. `notebooks/paper_analysis/validation_2011_floods.ipynb` — runtime: approximately 20 minutes
+5. `notebooks/paper_analysis/results_and_figures.ipynb` — runtime: approximately 5 minutes
+
+The full workflow takes approximately 35 hours in total, although runtimes will vary depending on hardware. This route requires the archived Zenodo "inputs" folder, MATLAB, and the IMF DIGNAD toolkit.
+
+### Option 2: Reproduce paper figures and summary statistics only
+
+To reproduce the final figures and summary statistics from the archived model outputs, run:
 
 ```text
 notebooks/paper_analysis/results_and_figures.ipynb
 ```
 
-Figure 5, shown above, is produced by this notebook from the final model output
-file `outputs/results/full_model_simulation.csv`.
-
-## Reproducibility Repositories
-
-Separate repositories for different levels of reproducibility will be created
-for publication:
-
-- code record: this repository
-- figure reproduction: archived outputs needed to regenerate tables and figures
-- results reproduction: prepared inputs and selected pre-computed outputs
-- full pipeline reproduction: source inputs and all intermediate data required
-  to rebuild the analysis
-
-The final DOI or repository links will be added here once they are available.
-
-## Repository Contents
-
-- `sovereign/`: reusable Python functions for flood risk, DIGNAD coupling, and
-  credit-risk analysis
-- `notebooks/preparation/`: input preparation notebooks
-- `notebooks/pre_sim/`: expensive pre-simulation notebooks
-- `notebooks/paper_analysis/`: final simulation, validation, and figure notebooks
-- `assets/`: README and publication-facing assets
-
-Local `inputs/`, `outputs/`, and `DIGNAD/` directories are intentionally ignored
-by Git.
-
-## System Requirements
-
-This code was developed with Python 3.11. The Conda environment installs the
-geospatial and scientific Python dependencies used by the notebooks, including
-`geopandas`, `rasterio`, `xarray`, `cfgrib`, `scipy`, `scikit-learn`,
-`openpyxl`, `matplotlib`, and `seaborn`.
-
-The DIGNAD-linked parts of the workflow require:
-
-- MATLAB available on `PATH`
-- IMF DIGNAD toolkit at `DIGNAD/DIGNAD_Toolkit/`
-- the Thailand-calibrated `input_DIG-ND.xlsx` workbook supplied with the
-  reproducibility materials
+This route uses the pre-computed model outputs supplied in the Zenodo "outputs" folder and does not require rerunning the full flood risk, DIGNAD, or sovereign rating simulation workflow.
 
 ## Citation
 
-Citation details will be added when the paper is published.
+If you use this repository, please cite the accompanying academic paper:
 
-## Licence
-
-This repository is released under the MIT Licence. See `LICENSE` for details.
+> Bernhofen, M. et al. “Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”. *Oxford Review of Economic Policy*. Citation details to be added when available.
