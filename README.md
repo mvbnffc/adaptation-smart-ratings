@@ -8,7 +8,7 @@ The repository implements a probabilistic modelling framework for estimating the
 
 The code links three types of model: (1) a flood risk and adaptation model, (2) a macroeconomic model (the IMF's DIGNAD), and (3) a sovereign rating model. The overall modelling framework is pictured below. Please refer to the accompanying academic paper for a detailed breakdown of the methodology.
 
-![Modelling Framework](assets/Figure_1.png)
+![Modelling Framework](assets/figure_1.png)
 
 ## Prerequisites
 
