@@ -1,0 +1,33 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="sovereign-risk",
+    version="0.1.0",
+    description="Sovereign climate-risk analysis linking Thailand flood risk, DIGNAD macro shocks, and credit ratings.",
+    packages=find_packages(),
+    install_requires=[
+        "numpy",
+        "pandas",
+        "pyarrow",
+        "geopandas",
+        "shapely",
+        "pyproj",
+        "rasterio",
+        "rasterstats",
+        "xarray",
+        "cfgrib",
+        "eccodes",
+        "netcdf4",
+        "scipy",
+        "scikit-learn",
+        "lmoments3",
+        "copulas",
+        "openpyxl",
+        "matplotlib",
+        "seaborn",
+        "tqdm",
+        "joblib",
+        "country_converter",
+        "tabulate",
+    ],
+)

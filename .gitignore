@@ -1,0 +1,25 @@
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyPI configuration file
+.pypirc
+.DS_Store
+._*
+
+# Files to ignore
+*.git
+*.egg-info
+*.csv
+*.log
+*.gpkg
+*.tif
+*.xml
+*.gzip
+*.docx
+*.pkl
+
+# Folders to ignore
+build/
+inputs/
+outputs/
+DIGNAD/
