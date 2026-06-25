@@ -134,7 +134,7 @@ This step is important because the simulation script reads directly from the rel
 After making these changes, save the workbook and keep it at:
 
 ```text
-DIGNAD/input_DIG-ND.xlsx
+DIGNAD/DIGNAD_Toolkit/input_DIG-ND.xlsx
 ```
 
 
