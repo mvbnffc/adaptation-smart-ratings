@@ -45,7 +45,6 @@ adaptation-smart-ratings/
 ├── DIGNAD/
 ├── notebooks/
 ├── sovereign/
-├── assets/
 └── environment.yml
 ```
 
