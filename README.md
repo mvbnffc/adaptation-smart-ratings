@@ -1,6 +1,6 @@
 # Code for “Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”
 
-This repository contains the code used for the analysis in the paper **“Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”**, published in the *Oxford Review of Economic Policy*.
+This repository contains the code used for the analysis in the paper **“Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”**, published in the *Oxford Review of Economic Policy*. [link](https://doi.org/10.1093/oxrep/grag026)
 
 The repository implements a probabilistic modelling framework for estimating the impacts of flooding, climate change, and adaptation on Thailand’s sovereign credit rating. 
 
@@ -96,4 +96,4 @@ This route uses the pre-computed model outputs supplied in the Zenodo "outputs" 
 
 If you use this repository, please cite the accompanying academic paper:
 
-> Bernhofen, M. et al. “Modelling the impact of physical climate risk and adaptation on sovereign credit ratings”. *Oxford Review of Economic Policy*. Citation details to be added when available.
+> Mark V Bernhofen, Matt Burke, Akaraseth Puranasamriddhi, Ruben Kerkhofs, Nicola Ranger, Gireesh Shrimali, "Modelling the impact of physical climate risk and adaptation on sovereign credit ratings", Oxford Review of Economic Policy, Volume 42, Issue 2, Summer 2026, Pages 475–501, https://doi.org/10.1093/oxrep/grag026
